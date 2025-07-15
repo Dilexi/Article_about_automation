@@ -64,8 +64,6 @@ Telegram не любит автоматизацию и тщательно сле
 
 Скрипт: первая версия
 
-# pip install telethon python-dotenv pytz
-
 import asyncio
 from telethon import TelegramClient
 from datetime import datetime, timedelta, time
@@ -74,13 +72,11 @@ import pytz
 from dotenv import load_dotenv
 import os
 
-# Загрузка конфигурации
 load_dotenv()
 api_id = os.getenv("api_id")
 api_hash = os.getenv("api_hash")
 session_name = 'session_name'
 
-# Таймзона и сообщения
 ekb_timezone = pytz.timezone('Asia/Yekaterinburg')
 messages = ["Доброе утро! Как твои дела?", "Привет! Надеюсь, у тебя всё отлично!"]
 
@@ -116,8 +112,6 @@ asyncio.run(main())
 
 Полная версия скрипта автоматизации своей переписки с девушкой в Telegram представлена ниже. Скрипт подключается к аккаунту через API, загружает данные аутентификации из .env, и планирует отправку случайных сообщений (утренних и дневных) для заданных пользователей в определённое время:
 
-# pip install telethon python-dotenv pytz
-
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -129,13 +123,11 @@ from dotenv import load_dotenv
 import os
 import pytz
 
-# Загрузка переменных окружения из .env
 load_dotenv()
 api_id = os.getenv("api_id")  # Ваш API ID
 api_hash = os.getenv("api_hash")  # Ваш API Hash
 session_name = 'nodejs_session'  # Название сессии
 
-# Сообщения
 greetings = [
     "Доброе утро! Как ты себя чувствуешь сегодня?",
     "Привет, как настроение? Готовность к новому дню?",
@@ -159,7 +151,6 @@ supportive_messages = [
     "Как ты себя чувствуешь? Хочешь поговорить?"
 ]
 
-# Таймзона Екатеринбурга
 ekb_timezone = pytz.timezone('Asia/Yekaterinburg')
 
 async def schedule_messages(client, user, messages, start_hour, end_hour, days, description):
